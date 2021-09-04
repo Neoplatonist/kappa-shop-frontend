@@ -1,5 +1,5 @@
-import Link from "next/link";
-import NextImage from "./Image";
+import Link from "next/link"
+import NextImage from "./Image"
 
 const Navbar = () => {
   return (
@@ -22,7 +22,7 @@ const Navbar = () => {
         <span className="ml-3 font-semibold text-sm text-indigo-500"></span>
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

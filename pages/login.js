@@ -1,46 +1,46 @@
-import { getSession, signIn, signOut } from 'next-auth/client';
-import Link from 'next/link';
-import Head from 'next/head';
+import { getSession, signIn, signOut } from "next-auth/client"
+import Link from "next/link"
+import Head from "next/head"
 
 const LoginPage = ({ session }) => {
   const signInButtonNode = () => {
     if (session) {
-      return false;
+      return false
     }
 
-    const handleSignIn = e => {
-      e.preventDefault();
-      // signIn('google', { callbackUrl: '/dashboard' });
-      signIn('google');
-    };
+    const handleSignIn = (e) => {
+      e.preventDefault()
+      // signIn('google', { callbackUrl: '/dashboard' })
+      signIn("google")
+    }
 
     return (
       <div>
-        <Link href="/api/auth/signin">
+        <Link href="/api/auth/signin" passHref>
           <button onClick={handleSignIn}>Sign In with Google</button>
         </Link>
       </div>
-    );
-  };
+    )
+  }
 
   const signOutButtonNode = () => {
     if (!session) {
-      return false;
+      return false
     }
 
-    const handleSignOut = e => {
-      e.preventDefault();
-      signOut({ callbackUrl: '/' });
-    };
+    const handleSignOut = (e) => {
+      e.preventDefault()
+      signOut({ callbackUrl: "/" })
+    }
 
     return (
       <div>
-        <Link href="/api/auth/signout">
+        <Link href="/api/auth/signout" passHref>
           <button onClick={handleSignOut}>Sign Out</button>
         </Link>
       </div>
-    );
-  };
+    )
+  }
 
   if (!session) {
     return (
@@ -49,11 +49,10 @@ const LoginPage = ({ session }) => {
           {signOutButtonNode()}
           {signInButtonNode()}
         </div>
-        <div className="text">
-          You aren't authorized to view this page
-        </div>
+
+        <div className="text">You aren&apos;t authorized to view this page</div>
       </div>
-    );
+    )
   }
 
   return (
@@ -67,21 +66,19 @@ const LoginPage = ({ session }) => {
         {signInButtonNode()}
       </div>
 
-      <div className="text">
-        Hello world
-      </div>
+      <div className="text">Hello world</div>
     </div>
-  );
-};
+  )
+}
 
 export const getServerSideProps = async ({ req }) => {
-  const session = await getSession({ req });
+  const session = await getSession({ req })
 
   return {
     props: {
       session,
     },
-  };
-};
+  }
+}
 
-export default LoginPage;
+export default LoginPage

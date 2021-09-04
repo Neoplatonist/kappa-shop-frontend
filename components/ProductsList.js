@@ -1,5 +1,5 @@
-import NextImage from "./Image";
-import Link from "next/link";
+import NextImage from "./Image"
+import Link from "next/link"
 
 const ProductsList = ({ products }) => {
   return (
@@ -29,7 +29,7 @@ const ProductsList = ({ products }) => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default ProductsList;
+export default ProductsList

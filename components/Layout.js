@@ -1,6 +1,6 @@
-import CategoryButtons from "./CategoryButtons";
-import Footer from "./Footer";
-import Navbar from "./Navbar";
+import CategoryButtons from "./CategoryButtons"
+import Footer from "./Footer"
+import Navbar from "./Navbar"
 
 const Layout = ({ children, categories }) => {
   return (
@@ -12,7 +12,7 @@ const Layout = ({ children, categories }) => {
         <Footer />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

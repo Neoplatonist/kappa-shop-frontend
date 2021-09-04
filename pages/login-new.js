@@ -1,34 +1,34 @@
-import { providers, signIn, getSession } from "next-auth/client";
+import { providers, signIn, getSession } from "next-auth/client"
 
 function Login({ session, providers }) {
   if (session) {
     return {
       redirect: {
         destination: "/",
-        permanent: false
-      }
-    };
+        permanent: false,
+      },
+    }
   }
 
   return (
     <div>
       <h1>Login Page</h1>
 
-      {Object.values(providers).map(provider => {
+      {Object.values(providers).map((provider) => {
         return (
           <div key={provider.name}>
             <button onClick={() => signIn(provider.id)}>
               Sign In with {provider.name}
             </button>
           </div>
-        );
+        )
       })}
     </div>
-  );
+  )
 }
 
 export async function getServerSideProps(ctx) {
-  const session = await getSession(ctx.req);
+  const session = await getSession(ctx.req)
 
   // User is already logged in
   // Redirect to another page
@@ -36,17 +36,17 @@ export async function getServerSideProps(ctx) {
     return {
       redirect: {
         destination: "/",
-        permanent: false
-      }
-    };
+        permanent: false,
+      },
+    }
   }
 
   return {
     props: {
       session,
-      providers: await providers(ctx)
-    }
-  };
-};
+      providers: await providers(ctx),
+    },
+  }
+}
 
-export default Login;
+export default Login
