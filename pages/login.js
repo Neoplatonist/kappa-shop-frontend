@@ -1,6 +1,6 @@
-import { getSession, signIn, signOut } from "next-auth/client"
 import Link from "next/link"
 import Head from "next/head"
+import { getSession, signIn, signOut } from "next-auth/client"
 
 const LoginPage = ({ session }) => {
   const signInButtonNode = () => {
@@ -71,9 +71,8 @@ const LoginPage = ({ session }) => {
   )
 }
 
-export const getServerSideProps = async ({ req }) => {
-  const session = await getSession({ req })
-
+export const getServerSideProps = async (ctx) => {
+  const session = await getSession(ctx)
   return {
     props: {
       session,

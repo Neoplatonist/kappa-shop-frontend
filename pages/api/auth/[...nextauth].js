@@ -47,9 +47,9 @@ const options = {
       return Promise.resolve(token)
     },
   },
-  // pages: {
-  //   signIn: "/login",
-  // }
+  pages: {
+    signIn: "/login",
+  },
 }
 
 const Auth = (req, res) => NextAuth(req, res, options)

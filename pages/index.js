@@ -1,5 +1,4 @@
 import Head from "next/head"
-import LoginButton from "../components/LoginButton"
 import ProductsList from "../components/ProductsList"
 import { getProducts } from "../utils/api"
 
@@ -7,10 +6,8 @@ const HomePage = ({ products }) => {
   return (
     <div>
       <Head>
-        <title>Strapi Next.js E-commerce</title>
+        <title>Cuppa Kappa E-commerce</title>
       </Head>
-
-      <LoginButton />
 
       <ProductsList products={products} />
     </div>
