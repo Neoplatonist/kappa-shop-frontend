@@ -35,6 +35,10 @@ const options = {
   },
   callbacks: {
     session: async (session, user) => {
+      console.log('session', {
+        jwt: user.jwt,
+        id: user.id
+      })
       session.jwt = user.jwt
       session.id = user.id
       return Promise.resolve(session)
@@ -51,6 +55,12 @@ const options = {
             account?.accessToken
         )
         const data = await response.json()
+
+        console.log('jwt', {
+          isSignIn,
+          jwt: data.jwt,
+          id: data.id
+        })
 
         token.jwt = data.jwt
         token.id = data.user.id
