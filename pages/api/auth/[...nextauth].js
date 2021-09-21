@@ -18,6 +18,18 @@ const options = {
     database: process.env.NEXT_PUBLIC_DATABASE_NAME,
     synchronize: true,
   },
+  cookies: {
+    sessionToken: {
+      name: `__Secure-next-auth.session-token`,
+      options: {
+        httpOnly: true,
+        sameSite: "lax",
+        path: "/",
+        secure: true,
+        domain: ".cuppakappa.studio"
+      },
+    },
+  },
   session: {
     jwt: true,
   },
