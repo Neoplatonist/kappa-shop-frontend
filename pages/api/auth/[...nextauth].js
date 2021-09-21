@@ -57,7 +57,6 @@ const options = {
         const data = await response.json()
 
         console.log('jwt', {
-          isSignIn,
           jwt: data.jwt,
           id: data.id
         })
@@ -66,6 +65,7 @@ const options = {
         token.id = data.user.id
       }
 
+      console.log('jwt', {isSignIn})
       return Promise.resolve(token)
     },
   },
