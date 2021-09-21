@@ -35,9 +35,9 @@ const options = {
   },
   callbacks: {
     session: async (session, user) => {
-      console.log('session', {
+      console.log("session", {
         jwt: user.jwt,
-        id: user.id
+        id: user.id,
       })
       session.jwt = user.jwt
       session.id = user.id
@@ -56,16 +56,16 @@ const options = {
         )
         const data = await response.json()
 
-        console.log('jwt', {
+        console.log("jwt", {
           jwt: data.jwt,
-          id: data.id
+          id: data.id,
         })
 
         token.jwt = data.jwt
         token.id = data.user.id
       }
 
-      console.log('jwt', {isSignIn})
+      console.log("jwt", {isSignIn})
       return Promise.resolve(token)
     },
   },
