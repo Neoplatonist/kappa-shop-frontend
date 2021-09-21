@@ -26,7 +26,7 @@ const options = {
         sameSite: "lax",
         path: "/",
         secure: true,
-        domain: ".cuppakappa.studio"
+        domain: ".cuppakappa.studio",
       },
     },
   },
